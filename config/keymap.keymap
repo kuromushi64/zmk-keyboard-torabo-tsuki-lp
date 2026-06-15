@@ -58,12 +58,3 @@
         };
     };
 };
-#ifdef CONFIG_ZMK_SPLIT_ROLE_CENTRAL
-/ {
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&pointing_device>;
-        input-processors = <&zip_temp_layer 2 800>;
-    };
-};
-#endif
