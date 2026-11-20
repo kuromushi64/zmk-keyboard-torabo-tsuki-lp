@@ -1,4 +1,16 @@
+#include <dt-bindings/zmk/input_transform.h>
+
 &pointing_listener {
     status = "okay";
     device = <&pointing_device>;
+    input-processors = 
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+        <&zip_temp_layer 2 1200>;
+    scroller {
+        layers = <1>;
+        input-processors = 
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_scroll_scaler 1 10>;
+    };
 };
